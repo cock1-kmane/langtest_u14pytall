@@ -14,6 +14,21 @@ python:
   - pypy
   - pypy3 
 
+services:
+ # - cassandra 
+ # - elasticsearch 
+ # - memcached 
+ # - mongodb 
+  - mysql 
+ # - neo4j 
+  - postgres 
+ # - rabbitmq 
+ # - redis 
+  - selenium 
+ # - sqlite 
+ # - couchdb 
+  - rethinkdb 
+ # - riak
  
 
 build:
@@ -22,5 +37,10 @@ build:
     image_tag: master 
     pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+    
   ci:
     - python --version
+    - echo $SHIPPABLE_MYSQL_BINARY
+    - echo $SHIPPABLE_POSTGRES_BINARY
+    - echo $SHIPPABLE_SELENIUM_BINARY
+    - echo $SHIPPABLE_RETHINKDB_BINARY
